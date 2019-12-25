@@ -1,0 +1,109 @@
+import numpy as np
+
+x= np.array([1,2,3,4,5,6,7,8,9])
+arr=x[np.array([1,3,-2])]
+      
+print("\n Element are :\n",arr)
+  
+a=np.arange(20)
+print("\n Array is :\n" ,a)
+print("\n a[-8:17:1] =" ,a[-9:17:1])
+print("\n a[10:]" ,a[10:])
+
+
+arr =np.array([[1,2,3],
+               [4,2,5]])
+print("array is the type of" ,type(arr))
+print("no.of dimension :" ,arr.ndim)
+print("shape of array :" ,arr.shape)
+print("size of array :" ,arr.size)
+print("array store element type" ,arr.dtype)
+
+
+a=np.array([[1,2,4] ,[5,8,7]] ,dtype ='int')
+print("Array created using passed list : \n" ,a)
+b=np.array((1,2,3))
+print("\nArray created using passed tuple :\n" ,b)
+c=np.zeros((3,4))
+print("\n An array initialized with all zeros :\n" ,c)
+d=np.full((3,3) ,6 ,dtype ='complex')
+print("\nAn array initialized with all 6s" ,"Array type is complex :\n" ,d)
+
+
+
+arr=np.array([[-1 ,2 ,0 ,4] ,
+              [4 ,-0.5 ,6 ,0],
+              [2.6 ,0 ,7 ,8],
+              [3 ,-7 ,4 ,2]])
+#slicing array
+temp=arr[:2 ,::2]
+print("Array with first two raw and alternate" "column(0 or 2) : \n" ,temp)
+
+#Integer array indexing example
+temp=arr[[0,1,2,3] ,[3,2,1,0]]
+print("\nElement at indices (0 ,3) ,(1,2),(2,1) ," "(3,0):\n" ,temp)
+#boolean aray indexing example
+cond =arr>0
+temp =arr[cond]
+print("\nElement greater than 0 :\n" ,temp)
+
+
+
+
+a=np.array([1,2,5,3])
+
+#add 1 to every elemnt
+print("Adding 1 to every element :" ,a+1)
+
+#subtract 3 from each element
+print("Subtracting 3 from each element:" ,a-3)
+
+#multiply each element by 10
+print("multiplying each element by 10 :" ,a*10)
+
+#square each element 
+print("squaring each element :" ,a**2)
+
+#modify existing array
+a *=2
+print("doble each element of original array :" ,a)
+
+#transpose of array
+a=np.array([[1,2,3] ,[3,4,5] ,[9,6,0]])
+print ("\n Original array:\n" ,a)
+print("Transpose or array :\n" ,a.T)
+
+
+
+arr=np.array([[1,5,6],
+          [4,7,2],
+          [3,1,9]])
+
+#maximum element of array
+print("Largest element is :",arr.max())
+
+print("Row-wise maximum elements :" ,arr.max(axis =1))
+
+#minimum element of array
+print("column-wise minimum elements :" ,arr.min(axis=0))
+
+#sum of array element
+print("sum of all the array element :" ,arr.sum())
+
+# comulative sum with each row
+
+print("cumulative sum alomg each row:\n", arr.cumsum(axis =1))
+
+
+# Using python  Numpy libraries
+
+import numpy as np
+b=np.arange(12).reshape(4,3)
+print("Original array is :")
+
+print(b)
+print()
+
+print('Modified array is:') 
+for x in np.nditer(a, flags = ['external_loop'], order = 'C'):
+    print(x)
