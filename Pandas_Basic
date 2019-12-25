@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Sep 17 10:44:43 2019
+
+@author: pradeep
+"""
+
+""""
+Reshaping a data from wide to long in pandas python is done with melt() function.
+melt function in pandas is one of the efficient function to transform the data from wide to long format.
+""""
+import pandas as pd
+
+ 
+#Create a DataFrame
+d = {
+    'countries':['India','kathmandu','China'],
+    'population_in_million':[100,200,120],
+    'gdp_percapita':[2000,7000,15000]
+    }
+ 
+df = pd.DataFrame(d,columns=['countries','population_in_million','gdp_percapita'])
+print(df)
+
+# Read the Data From .csv file using Pandas
+data=pd.read_csv("data/countries.csv")
+print(data.head(5))
+
+data.tail(30) # list of last element
+
+# statistics of data 
+data.describe()
+# information and shape
+data.info()
+data.columns
+
+
+# use the melt( ) for extend the values
+
+df2=pd.melt(df,id_vars=['countries'],var_name='metrics', value_name='values')
+df2
+
+# Use Pivot Function
+d = {
+    'countries':['India','kathmandu','China'],
+    'metrics':[100,200,120],
+    'values':[2000,7000,15000]
+    }
+ 
+df = pd.DataFrame(d,columns=['countries','metrics','values'])
+print(df)
+
+df3=df.pivot(index='countries',columns='metrics', values='values')
+print(df3)
+
+df2=df.pivot(index='countries', columns='metrics', values='values')
+print(df2)
+
+# change the values 
+import pandas as pd
+
+ 
+#Create a DataFrame
+d = {
+    'countries':['A','B','C','A','B','C'],
+    'metrics':['population_in_million','population_in_million','population_in_million',
+                             'gdp_percapita','gdp_percapita','gdp_percapita'],
+    'values':[100,200,120,2000,7000,15000]
+    }
+ 
+df = pd.DataFrame(d,columns=['countries','metrics','values'])
+print(df)
+
+df4 =df.pivot(index='countries' , columns='metrics' , values='values')
+print(df4)
