@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 23 17:42:22 2019
+
+@author: pradeep
+"""
+
+import numpy as np
+import pandas as pd
+
+from pandas import Series, DataFrame
+
+#Selecting and retrieving data
+
+series_obj = Series(np.arange(8), index=['row 1', 'row 2','row 3','row 4','row 5', 'row 6', 'row 7', 'row 8'])
+series_obj
+
+#selecting
+series_obj['row 7']
+
+# retrieve all records with the specified integer index.
+series_obj[[0,7]]
+
+np.random.seed(25)
+DF_obj = DataFrame(np.random.rand(36).reshape((6,6)), 
+                   index=['row 1', 'row 2', 'row 3', 'row 4', 'row 5', 'row 6'],
+                   columns=['column 1', 'column 2', 'column 3', 'column 4', 'column 5', 'column 6'])
+DF_obj
+
+# Python to select and retrieve only those specific rows and columns.
+DF_obj.ix[['row 2', 'row 5'], ['column 5', 'column 2']]
+
+## ending label-index, and every record in between.
+series_obj['row 3':'row 7']
+
+# all records, to indicate how each element compares to a scalar value. 
+DF_obj < .2
+
+# that satisfy the comparison expression you write.
+series_obj[series_obj > 6]
+
+# values equal to a scalar.
+series_obj['row 1', 'row 5', 'row 8'] = 8
+
+
+series_obj
