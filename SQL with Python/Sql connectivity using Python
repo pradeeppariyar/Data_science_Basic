@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Nov  3 19:08:24 2019
+
+@author: pradeep
+"""
+
+""""
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="password",
+  database="Consumer_Data"
+)
+
+print(mydb)
+
+""""
+
+This is for check the number of table in database;
+""""
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="password",
+  database="Demo"
+)
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW  TABLES")
+
+for x in mycursor:
+  print(x)
+  
+
+ 
+ 
+ """"
+ """"
+ This is for creating a table on database
+""""
+""""
+ import mysql.connector
+ from mysql.connector import Error
+
+ mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="password",
+  database="Consumer_Data"
+  )
+mycursor = mydb.cursor()
+
+mycursor.execute("CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))")
+print("Customer table has created")
+
+  """"
+  
+  """"
+  Data insertion into the table
+  """"
+ import mysql.connector
+ from mysql.connector import Error
+ 
+ 
+ mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="password",
+  database="Consumer_Data"
+  )
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val =("John", "Highway 21"),
+val=('Amy', 'Apple st 652')
+
+mycursor.execute(sql, val)
+mydb.commit()
+print(mycursor.rowcount, "record inserted.")
+
+""""
+Multiple Data insertion
+""""
+import mysql.connector
+from mysql.connector import Error
+ 
+ 
+ mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="password",
+  database="Consumer_Data"
+  )
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = {
+  ('Amy', 'Apple st 652'),
+  ('Hannah', 'Mountain 21'),
+  ('Michael', 'Valley 345'),
+  ('Sandy', 'Ocean blvd 2'),
+  ('Betty', 'Green Grass 1')
+  }
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")
+
