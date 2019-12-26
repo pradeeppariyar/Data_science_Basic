@@ -1,0 +1,22 @@
+
+# How to data fetch from Database table.
+
+import mysql.connector
+from mysql.connector import Error
+ 
+ 
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="password",
+  database="Consumer_Data"
+  )
+
+db_cursor = mydb.cursor()
+# executing cursor with execute method and pass SQL query
+db_cursor.execute("select date_received,product_name ,issue from consumer_complaints LIMIT 10")
+# get list of all databases
+results = db_cursor.fetchall()
+for record in results:
+    print(record[0], ". ", record[1], "(%s)" %record[2])
+    mydb.commit()
