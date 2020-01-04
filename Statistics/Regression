@@ -1,1 +1,58 @@
 
+This is Regression by using Spss. We taken weather Data and want to check temperature is dependent to 	Rain, Humidity, Direction or not.
+Below are output you can check it all mathmatical calculation and their basic concept.
+
+
+Variables Entered/Removeda
+Model	Variables Entered	Variables Removed	Method
+1	Rain, Humidity, Directionb	.	Enter
+
+a. Dependent Variable: Temperature
+b. All requested variables entered.
+
+
+Model Summaryb
+Model	R	R Square	Adjusted R Square	Std. Error of the Estimate
+1	.177a	.031	.031	9.4605
+
+a. Predictors: (Constant), Rain, Humidity, Direction
+b. Dependent Variable: Temperature
+
+
+ANOVAa
+Model	Sum of Squares	df	Mean Square	F	Sig.
+1	Regression	162309.599	3	54103.200	604.498	.000b
+	Residual	4992993.977	55787	89.501		
+	Total	5155303.575	55790			
+
+a. Dependent Variable: Temperature
+b. Predictors: (Constant), Rain, Humidity, Direction
+
+
+Coefficientsa
+Model	Unstandardized Coefficients	Standardized Coefficients	t	Sig.
+	B	Std. Error	Beta		
+1	(Constant)	2.434	.183		13.290	.000
+	Humidity	.102	.003	.170	40.070	.000
+	Direction	-.002	.000	-.034	-8.020	.000
+	Rain	-.067	.005	-.060	-14.416	.000
+
+a. Dependent Variable: Temperature
+
+
+Residuals Statisticsa
+Minimum	Maximum	Mean	Std. Deviation	N
+Predicted Value	-60.388	12.588	9.097	1.7057	55791
+Residual	-35.7469	75.1880	.0000	9.4602	55791
+Std. Predicted Value	-40.738	2.047	.000	1.000	55791
+Std. Residual	-3.779	7.948	.000	1.000	55791
+
+a. Dependent Variable: Temperature
+
+Charts 
+Graph folder will be put in Output folder please check .
+
+
+ 
+
+
