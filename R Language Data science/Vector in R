@@ -1,0 +1,166 @@
+#Vector in R
+
+Subject_name<-c("John Doe" , "Jane Doe" ,"Steve Graves")
+temperature <-c(98.1 ,98.6 ,101.4)
+Flu_status <-c(FALSE ,FALSE ,TRUE)
+temperature[2]
+
+#accessing items in vector in the range
+temperature[2:3]
+
+#exclude the item from the vector
+temperature[-2]
+
+# use a vector to indicate whether to include item
+temperature[c(TRUE ,TRUE ,FALSE)]
+
+# add gender factor
+gender<-factor(c("male" ,"female" ,"male"))
+gender
+
+
+#Add blood type factor
+
+blood <- factor(c("A" ,"B" ,"C" ,"k") ,levels = c("B" ,"A" ,"D" ,"C"))
+blood
+
+# add order factor
+
+s <-factor(c("SEVERE" ,"MILD" ,"MODERATE") ,levels = c("MILD" ,"SEVERE","MODERATE") ,ordered = FALSE)
+s
+s >"MODERATE"
+
+Subjectname[1]
+temperature[1]
+Flustatus[1]
+gender[1]
+blood[1]
+symptoms[1]
+
+system1 <-list (fullname=Subjectname[1],
+                temperature=temperature[1],
+                Flustatus=Flu_status[1],
+                gender=gender[1],
+                blood=blood[1],
+                symptoms=symptoms[1]
+)
+system1
+
+pt_data <- data.frame(subjectname, temperature, flustatus, gender,
+                      blood, symptoms, stringsAsFactors = FALSE)
+pt_data
+
+#create matrix
+m<-matrix(c(1:6),nrow = 3 ,ncol = 2)
+m
+m2<-matrix(c(6:12),nrow = 2)
+m2
+#acess row
+m2[1,]
+
+
+#access the cols
+m2[,1]
+
+#acess row and cols
+m2[1,4]
+
+
+m2[1,]
+
+#show all data structure in memory
+ls()
+
+rm(system1)
+ls()
+
+# read csv files
+library(csv)
+usecar <-read.csv("usedcars.csv")
+str(usecar)
+
+
+# Structure Of Data
+str(usecar)
+head(usecar)
+
+which(is.na(cars$mileage))
+
+typeof(cars)
+usedcars <- read.csv("~/Desktop/Python Language/R Language/usedcars.csv", stringsAsFactors = FALSE)
+usedcars
+
+#get structure of used car data
+str(usedcars)
+
+#summarize numeric variables
+summary(usedcars$year)
+summary(usedcars$model)
+s2<-summary(usedcars[c("year" ,"mileage" ,"color")])
+s2
+
+#calculate the mean and medium
+(36000+44000+56000)/3
+mean(c(36000+44000+56000))
+#calculate the medium  
+median(c(36000+44000+56000))
+
+#range of cars
+range(usedcars$price)
+#different of ranges
+diff(range(usedcars$price))
+
+#IQR for used car prices IQR) which is used to calculate the inner quartile range. 
+IQR(usedcars$price)
+
+#use quantile to calculate five-number summery
+quantile(usedcars$price)
+
+# variance and standard deviation of the used car data
+var(usedcars$price)
+sd(usedcars$price)
+var(usedcars$mileage)
+sd(usedcars$mileage)
+
+# one-way tables for the used car data
+table(usedcars$year)
+table(usedcars$model)
+table(usedcars$color)
+
+model_table <- table(usedcars$model)
+prop.table(model_table)
+
+View(usedcars)
+
+# round the data
+color_table <- table(usedcars$color)
+color_pct <- prop.table(color_table) * 50
+round(color_pct, digits = 1)
+
+# scatterplot of price vs. mileage
+plot(x = usedcars$mileage, y = usedcars$price,
+     main = "Scatterplot of Price vs. Mileage",
+     xlab = "Used Car Odometer (mi.)",
+     ylab = "Used Car Price ($)")
+
+# checking our variable
+table(usedcars$conservative)
+library(gmodels)
+CrossTable(x = usedcars$model, y = usedcars$conservative)
+
+
+#Types of Data 
+typeof(cars$Car_Name)
+cars$Car_Name = as.factor(cars$Car_Name)
+typeof(cars$Car_Name)
+
+
+
+# check the quertile of Data
+
+scores <- c(88, 84, 83, 80, 94, 90, 81, 79, 79, 81, 85, 87, 86, 89, 92)
+quantile(scores)
+
+pairs(cars)
+
+cor(cars)
