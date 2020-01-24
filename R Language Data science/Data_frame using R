@@ -1,0 +1,15 @@
+eid<-c(1:5)
+  ename<-c("pradeep", "Daniel", "Danny", "sagar","siva")
+  gender<-c("M", "M", "M", "F", "F")
+  location<-c("Amherst", "Boston", "Los Angeles", "Spring field", "Cambridge")
+  Salary<-c(40000, 50000, 60000, 70000, 80000)
+  eage <-c(12,35,34,45,56)
+
+e<-data.frame(eid,ename,gender,location,Salary,eage)
+print(e)
+View(e)
+
+e$eid[2]<-2
+e
+e$eid[2]<-as.character("feb")
+e
