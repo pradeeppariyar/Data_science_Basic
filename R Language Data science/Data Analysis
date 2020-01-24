@@ -1,0 +1,109 @@
+
+
+#Employee Data  Analysis
+emp<-read.csv('emp.csv')
+print(emp)
+summary(emp)
+#use for calculate the values of columns Min medium and max
+summary(emp$Salary)
+summary(emp$Age)
+#view the data
+View(emp)
+is.na(emp$Age)
+is.na(emp$Salary)
+
+boxplot(emp)
+boxplot(emp$Salary)
+
+
+# Another method
+emp$age[is.na(emp$Age)] <-mean(emp$Age ,na.rm = TRUE)
+emp$age[(emp$Salary) >2000]
+#standard Max
+emp$Salary[emp$Salary>6908]=6908
+
+#standard min
+emp$Salary[emp$Salary<1784]=1784
+boxplot(emp$Salary)
+boxplot(emp$Salary)
+#
+getwd()
+setwd("~/Desktop/Python Language/R Language")
+
+#another Value
+carmpg<-read.csv('carMPG.csv')
+print(carmpg)
+View(carmpg)
+boxplot(carmpg)
+carhaor=as.integer('carmpg')
+carmpg$Horsepower=as.integer(carmpg$Horsepower)
+boxplot(carmpg$Horsepower)
+
+summary(cars)
+
+# another substitute method of data
+
+
+carmpg$Car_Name <-sub("\\ .*","",carmpg$Car_Name) 
+carmpg$Car_Name <-as.factor(carmpg$Car_Name)
+View(carmpg$Car_Name)
+str(carmpg)
+levels(carmpg$Car_Name)
+
+# second substitute method of data
+
+carmpg$Car_Name <-gsub("\\ .*","",carmpg$Car_Name) 
+carmpg$Car_Name <-as.factor(carmpg$Car_Name)
+View(carmpg$Car_Name)
+str(carmpg)
+levels(carmpg$Car_Name)
+
+levels(carmpg$Car_Name)[7] <-"chevrolet"
+levels(carmpg$Car_Name)
+levels(carmpg$Car_Name)[31]<-"toyota"
+levels(carmpg$Car_Name)
+
+levels(carmpg$Car_Name)[33]<-"volkswagen"
+levels(carmpg$Car_Name)[34]<-"volkswagen"
+levels(carmpg$Car_Name)[12]<-"ford"
+levels(carmpg$Car_Name)[16]<-"maxda"
+levels(carmpg$Car_Name)[16]<-"mazda"
+levels(carmpg$Car_Name)[16]<-"mercedes"
+levels(carmpg$Car_Name)[17]<-"mercedes"
+levels(carmpg$Car_Name)
+
+#
+carmpg$Car_Name <-as.factor(carmpg$Car_Name)
+
+carmpg$Car_Name <-gsub("\\ .*" ,"",carmpg$Car_Name) 
+View(carmpg)
+levels(carmpg$Car_Name)
+
+view(carmpg$Car_Name)
+str(carmpg$Car_Name)
+
+
+#convert all character to int
+levels(carmpg$Car_Name)[28]<-"volkswagen"
+levels(carmpg$Car_Name)[31]<-"volkswagen"
+levels(carmpg$Car_Name)[24]<-"subaru"
+levels(carmpg$Car_Name)[30]<-"volvo"
+levels(carmpg$Car_Name)[18]<-"opel"
+levels(carmpg$Car_Name)[8]<-"chrysler"
+
+#convert name to numeric
+
+# Another Data
+emp<-read.csv('datasetfiles/German.csv',header = TRUE,fileEncoding = "UCS-2LE" ,sep=",")
+iconv(names(emp), to = "ASCII", sub = "")
+print(emp)
+summary(emp)
+#use for calculate the values of columns Min medium and max
+summary(emp$Salary)
+summary(emp$Age)
+#view the data
+View(emp)
+is.na(emp$Age)
+is.na(emp$Salary)
+
+
