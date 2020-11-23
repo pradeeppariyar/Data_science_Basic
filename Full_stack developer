@@ -1,0 +1,17 @@
+React Native Installation process in MAC OS.
+
+
+React native: Mastering React Native/Learning React Native: Building Native Mobile Apps with JavaScript book.
+
+book link :https://books.google.de/books/about/React_and_React_Native.html?id=jLkrDwAAQBAJ&printsec=frontcover&source=kp_read_button&redir_esc=y#v=onepage&q&f=false
+
+
+1. Configuration:  npn install -g create-react-app
+2. Nix create-react-app .
+3. npm start
+    youtube videos for details info. 
+          https://www.youtube.com/watch?v=mad-WmkMZd8&list=PLDIXF8nb0VG1v4S-smVy7GV0MHsJ3PJiL&index=2
+
+4.  React render , react Fragment -> remove extra div.
+JavaScript Expressions in JSX in ReactJs-javascript use html,ES6 Template Literals in JSX in ReactJS , 
+CSS Styling & Importing CSS Files in React JS | Class Vs ClassName in React JS ,CSS Styling & Importing CSS Files in React JS ,How to use Google fonts in React JS Application ,Internal CSS & Inline CSS Styling In React JS.
