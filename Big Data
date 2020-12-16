@@ -1,0 +1,95 @@
+This is for basic query and command for Sqoop in Hadoop 
+
+Sqoop command
+Sqoop help
+Sqoop help eval
+
+Ps -fu hfs
+Ps -fu yarn
+
+Sqoop with Database: 
+Sqoop list-database \
+—connect “dbc:mysql://quickstart.cloudera:3306 “  \
+—username retail_dba \
+—password Cloudera \
+
+Sqoop list-tables \
+—connect “dbc:mysql://quickstart.cloudera:3306 “ \ retail_db
+—username retail_dba \
+—password Cloudera \
+
+Sqoop eval \
+—connect “dbc:mysql://quickstart.cloudera:3306 “ \ retail_db
+—username retail_dba \
+—password Cloudera \
+—query “select *from departments”
+
+Swoop version
+Swoop help list-databases
+Ls -ltr  : use for check the scoop bin details
+
+Database List in sqoop: 
+
+sqoop list-database \
+—connect jdbc:mysql://localhost:3306 \
+—username retail_user \
+—password Cloudera
+
+swoop list-table \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+
+swoop eval \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+—query “select *from order LIMIT 10”
+
+swoop eval \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+—query “select *Insert into order values(100000 ,”2017-10-31\ 00:00:00.0” , 100000, \”DUMMY”)”
+
+swoop eval \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+—query “CREATE TABLE DUMMY (I INT)”
+
+
+swoop eval \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+—query “insert into dummy values(1)”
+
+swoop eval \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+—query “insert into dummy values(1)”
+
+swoop eval \
+—connect jdbc:mysql://ms.examle.com:3306 \retail_bd  \
+—username retail_user \
+—password itversity
+—query “select *from order_items LIMIT 10”
+
+swoop import \
+—connect jdbc:mysql://localhost:3306 \retail_bd 
+—username root\
+—password itversity \
+—table order_items \
+—warehouse-dir /user/ /sqoop_import/retails_bd
+
+mysql  Connector download : 
+sudo mv Downloads/mysql-connector-java-5.1.26-bin.jar /home/hadoop/sqoop/lib
+
+sudo cp mysql-connector-java-version//mysql-connector-java-5.1.26-bin.jar /user/sqoop/sqoop/
+
+Data import from Mysql to HDFS
+sqoop import --connect jdbc:mysql://mysqlhost/dbName --username user --password 123 --table tableName
+
+
