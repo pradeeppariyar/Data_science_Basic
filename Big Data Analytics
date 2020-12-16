@@ -1,1 +1,328 @@
 
+Spark basic Tutorial :
+
+1. > Spark DataFrame spark context
+      val sparkConf =new SparkConf()
+      Val sc =new SparkContext(sparkConf)
+      Val sqlContext=new sqlContext(sc)
+      Val rdd=sc.parallelize(Array(1,2 ,3,4,5))
+      Val schema =StructType(
+      StructField(“Number” , IntegerType , false) : : NIL)
+
+      val rowRDD =rdd.map(line => Row(line))
+      val df =sqlContext.createDataFrame(rowRDD ,schema)
+      df.printSchema()
+      df.show()
+      
+    2. DataFrame with spark session
+
+        def main(args: Array[String]) : Unit= {  
+        Val spark =SparkSession.builder()
+        .appName(“Creating of using Session”)
+        .master(“local”)
+        .getOrCreate()
+
+        Val rdd=spark.sparkContext.parallelize(Array(“1”,”2”,”3”,”4”,”5”))
+        Val schema= StructType(
+        Structfield(“Integer as  String” , StringType , true) ::Nil
+        )
+        Val rowRDD=rdd.map(element =>Row(element))
+        Val df=spark.createDataFrame(roeRDD ,schema)
+        Df.printSchema()
+        Df.show()
+        }
+      3. Creating DataFrame with CSV file in spark 1.x
+
+          def main(args: Array[String]) : Unit= {  
+          Val sparkConf=new SparkConf().
+          setMaster(“local”).
+          setAppName(“Creating”)
+
+          Val sc=new SparkContext(sparkConf)
+
+          Val sqlContext =new SQLContext(sc)
+
+          Val df=new sqlContext.read
+          .option(“header” ,”true”) # header of csv file
+          .option(“inferSchema”,true)
+          .format(“com.databrricks.spark.csv”) # dependency file
+          .load()
+          Df.printSchema()
+          Df.show()
+
+
+          }
+          Step : copy csv dependency
+                    Cd /bsd
+      4. Creating DataFrame with CSV file in spark 2.x(session)
+
+          def main(args: Array[String]) : Unit= {  
+          Val sparkConf=new SparkConf().
+          setMaster(“local”).
+          setAppName(“Creating data frame using CSV in spark 2.x way using Spark Session”)
+          .getOrCreate()
+          Val df=spark.read.csv(“.csv file path”)
+          .option(“header” ,”true”) # header of csv file
+          .option(“inferSchema”,true)
+          .options(“property”)
+          df.printSchema()
+          df.show()
+          
+     5.  Creating Multiple sparkContext in spark 1.x
+ 
+          def main(args: Array[String]) : Unit= {  
+          Val sparkConf=new SparkConf().
+          setMaster(“local”).
+          setAppName(“Creating data frame using CSV in spark 2.x way using Spark Session”)
+          .set(“spark.driver.alloMultipleContext” , “True”)
+
+          Val sc= new SparkContext(sparkConf)
+          Val sc1=new SparkContext(sparkConf)
+
+           val RDD=sc.parallelize(Array(1,2,3,4,5))
+          val DD1=sc.parallelize(Array(1,2,3,4,5))
+          RDD.collect()
+          RDD1.collect()
+
+
+     6. Spark Session
+
+          def main(args: Array[String]) : Unit= {  
+          Val spark= SparkSession.builder()
+          .setMaster(“local”)
+          setAppName(“Creating data frame using CSV in spark 2.x way using Spark Session”)
+          .getOrCreate()
+
+          Val sparkSession2=SparkSession.builder()
+          .setMaster(“local”)
+          setAppName(“Creating data frame using CSV in spark 2.x way using Spark Session”)
+          .getOrCreate()
+
+          Val rdd1 = SparkSession1.sparkContext.parallelize(Array(1,2,3,4,5))
+          Val rdd2 = SparkSession1.sparkContext.parallelize(Array(6,7,8,9,10))
+          Rdd1.collect().foreach(println)
+          Rdd2.collect().foreach(println)
+          }
+       7. FileFormat - ORC ,JSON,Parquet
+
+            def main(args: Array[String]) : Unit= { 
+            Val spark =SparkSession.builder()
+            .AppName(“Dl File format”)
+            .master(“Local”)
+            .getOrCreate()
+
+            Val jsonDF =spark.read.json(“file path.json”)
+            jsonDf.printschema()
+
+            jsonDf.show()
+
+            println(“Count : ” + jsonDF.count)
+
+            Val jsonDF =spark.read.Parquet(“file path.parquet”)
+            jsonDf.printschema()
+
+            Val jsonDF =spark.read.orc(“file path.orc”)
+            jsonDf.printschema()
+
+            }
+           8. Working with Avro Files.
+
+            def main(args: Array[String]) : Unit= { 
+            Val spark =SparkSession.builder()
+            .appName(“working with avro file format“)
+            .master(“Local”)
+            .getOrCreate()
+
+            Val avroDF=spark.read
+            .format(“avro”)
+            .local(“file folder”)
+            avroDF.printSchema()
+            avroDF.show(5)
+            println(“Row count :” +avroDF.count”)
+
+            avroDF.write.format(“com.databricks/spark-avro”).saved(“file location of IDE”)
+         9.
+         Applying Own Schema to the DataFrame
+            def main(args: Array[String]) : Unit= { 
+            Val spark =SparkSession.builder()
+            .appName(“Own Schema to the DataFrame“)
+            .master(“Local”)
+            .getOrCreate()
+
+
+            Val NamesDF=spark.read
+            .option(“header” ,”true”) # header of csv file
+            .option(“inferSchema”,true)
+            .options(“property”)
+            .csv(“File Location”)
+            NamesDF.printSchema()
+            NamesDF.show()
+
+            Val ownSchema=StructType(
+            StructField(“Year” ,Longtype ,true):: 
+            StructField(“name” ,StringType ,true):: 
+            StructField(“Country” ,StringType ,true):: 
+            StructField(“Sex” ,StringType ,true):: 
+            StructField(“count” ,Longtype ,true):: Bill
+
+            Val nameswithOwnschema=spark.read
+            .option(“header” , true)
+            .schema(ownSchema)
+            .csv(“File path”)
+            namewithOwnSchema.printSchema()
+
+            )
+
+            }
+            }
+        10.  Basic DataFrame Operation on spark
+
+              def main(args: Array[String]) : Unit= { 
+              Val spark =SparkSession.builder()
+              .appName(“Own Schema to the DataFrame“)
+              .master(“Local”)
+              .getOrCreate()
+
+              Val customerDF= spark.read.arc(“”)
+              customerDF=printSchema()
+              Val CustomerSchema=customerDF.schema
+              println(CustomerSchema)
+              
+           11.Basic Operations on DataFrame Part 1
+
+
+            Val spark=SparkSession.builder()
+            .setMaster(“Local”)
+            .setAppName(“Basic DataFrame Basic”)
+            .master(“local”)
+            .getOrCreate()
+            Val CustomerDF =spark.read.orc(“file path”)
+            CustomerSchema=CustomerDF.schema
+            println(CustomerSchema)
+
+            Val colNames = customerDF.columns
+            println(“Column Names :”)
+            println(colNames)
+
+             Val customerdescription=customerDF.describe(“customer_identifier”) #string format
+             Val customerdescription=customerDF.describe(“created_date”) # integer data
+
+            customerdescription.show();
+
+            Val colAndTypes=customerDF.dtypes
+            println(“column names and column types :”)
+
+            //customerDf.head(5).foreach(println)
+            //customerDF.show(10)
+            
+          12. # Basic Dataframe part -2
+
+              Val spark=SparkSession.builder()
+              .setMaster(“Local”)
+              .setAppName(“Basic DataFrame Basic”)
+              .master(“local”)
+              .getOrCreate()
+              Val CustomerDF =spark.read.orc(“file path ORC”)
+              //customerDF.head(10).foreach(println)
+              //customerDF.show(10)
+
+              Val filteredDF=customerDF.select(“column_name”)
+              //.where(“customer_type=“ORG””)
+              //.filter(customerDF(“”customer_type)==“ORG”)
+              .groupBy(“customer_type”).count() # group data frame based on column name
+              .filteredDF.show(10)
+              
+         13. #Temporary Table in spark
+              Val spark=SparkSession.builder()
+              .setMaster(“Local”)
+              .setAppName(“Basic DataFrame Basic”)
+              .master(“local”)
+              .getOrCreate()
+
+              Val customerDF =spark.read.orc(“file path ORC”) # Customer DataFrame
+              customerDF.registerTempTable(“Customer_table“) #registerTemptable only for this temporary session of spark
+
+              //Val sqlQuery=“select  where customer_type=“ORG”
+              Val limitrows = Spark.sql(“sqlQuery”)
+
+              //Val limitrows = Spark.sql(“select *from Customer_table limit 30”)
+
+              Limitrows.show(30)
+              
+           14. #Temporary Table in spark2 from data frame
+
+              Val spark=SparkSession.builder()
+              .setMaster(“Local”)
+              .setAppName(“Basic temporary data DataFrame Basic”)
+              .master(“local”)
+              .getOrCreate()
+
+
+              Val customerDF =spark.read.orc(“file path ORC”) # Customer DataFrame
+
+              customerDF.createTempView(“customer_table”)
+              Val limitedCustomerDF=Spark.sql(“select *from customer_table where customer_type=“IND””)
+
+
+              limitedCustomerDF.createOrReplaceTempView(“customer_table”)
+              Spark.sql(“select *from customer_table limit 10”)
+
+            15. #Creating Dataset using spark :
+
+                Case class Rating(userID: Integer , MovieID : Integer , rating: Double , timestamp: Integer)
+
+                Object SparkStreamingObject extend App{
+                Val sparkSession=SparkSession.builder()
+                .setAppName(“Basic temporary data DataFrame Basic”)
+                .master(“local”)
+                .getOrCreate()
+
+                Import sparkSession.implicits.    # whenever we use datasets we have to write this code
+
+                Val. ratingsDS=spark.read
+                .option(“header” , “true”)
+                .option(“inferSchema” , “true”)
+                .csv(“file.csv”)
+                .as[Rating]
+
+                ratingsDS.show()
+                
+              16. #Creating Dataset using spark and Operation
+
+                    Object SparkStreamingObject extend App{
+                    Val sparkSession=SparkSession.builder()
+                    .setAppName(“Basic temporary data DataFrame Basic”)
+                    .master(“local”)
+                    .getOrCreate()
+
+                    Import sparkSession.implicits.    # whenever we use datasets we have to write this code
+
+                    Val. ratingsDS=spark.read
+                    .option(“header” , “true”)
+                    .option(“inferSchema” , “true”)
+                    .csv(“file.csv”)
+                    .as[Rating]
+
+                    ratingsDS.show()
+
+                    Val filterDemo=ratingDS.filter(rating =>ratingObj.rating==4.0)
+                    filterDemo.show()
+                    println(“count of 4.0 start movies” + filterDemo.count())
+
+
+                    Val whereDemo =ratingsDS.where(ratingsDS(“rating==4.0”)
+
+                    //whereDemo.show()
+                    Val selectedcolumns =ratingsDS.select(“MovieID” , “”rating”).os[MovieRating]
+                    selectedcolumns.show()
+
+
+
+
+
+
+
+
+
+
+
