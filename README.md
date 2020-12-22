@@ -1,5 +1,4 @@
 # Data_science_Basic
-Hey all learner are welcome into Data science and basic fundamental of technology in github repository for putting thing into metaportal whereas all the learner and other software developer are interconnected and updates their experience and certail skill for solving the problem fruitfully we can directly see different code and can get bunch of ideas. This repository specially for those who want to learn Big data/data science using python,R language ,apache spark and hadoop with SQL for data streaming.
 
-
+All learner are welcome into Data science and basic fundamental of technology in github repository for putting thing into metaportal whereas learner and other  developer can take solution ideas and approach for solving the digital problem in business.Developer are interconnected and updates their experience and solution for resolving perspective problem by using skills, problem recognition ideas.We can directly see different code snipper and can get bunch of acknowledge into our headche. This repository specially for those who want to learn Big data/data science using python,R language ,apache spark and hadoop with SQL for data streaming.I have been working into college project like Sentiment analysis of twitter , process mining and website designing using ASP.net framework and Python with django for API setup.
 
