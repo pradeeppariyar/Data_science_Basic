@@ -1,0 +1,26 @@
+
+Create the directory in desktop:
+
+Mkdir passwordcrack
+
+Cd passwordcrack
+
+open the commandline prompt and types the below command
+1. Nano hasser.py
+
+#!/user/bin/python
+Import hashlib
+Hashvalue=input(“Enter a string to hash”)
+Hashobj1=hashlib.md5()
+Hashobj1.update(hashvalue.encode())
+Print(hashobj1.hexdigest())
+Hashobj2=hashlib.shal()
+Hashobj2.update(hashvalue.encode())
+Print(Hashobj2.hexdigest())
+
+change the file ownership from commandline.
+
+Command prompt=chmode+x hasher.py
+running the python from commmandline prompt
+Python3 hasher.py
+
